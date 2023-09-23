@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const router = express.Router({ mergeParams: true })
-const { InfluxDB, Point, HttpError } = require('@influxdata/influxdb-client')
+const { InfluxDB, Point } = require('@influxdata/influxdb-client')
 
 const influxConfigs = {
   url: process.env.INFLUX_PORT,
@@ -33,6 +33,7 @@ const writeToDB = async (temperatureValue) => {
     return {
       success: true,
       message,
+      temperature: temperatureValue,
     }
   } catch (err) {
     return {
