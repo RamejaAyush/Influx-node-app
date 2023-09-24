@@ -5,20 +5,18 @@ const { InfluxDB } = require('@influxdata/influxdb-client')
 const { PingAPI } = require('@influxdata/influxdb-client-apis')
 
 const influxConfigs = {
-  url: process.env.INFLUX_PORT,
   org: process.env.INFLUX_ORG,
-  token: process.env.INFLUX_TOKEN,
   bucket: process.env.INFLUX_TEMP_BUCKET,
 }
 
 router.post('/', async (req, res) => {
   console.log('--- inside /api/ping ---')
-  const { port } = req.query
+  const { port, token } = req.query
 
   try {
     const influxDB = new InfluxDB({
       url: port,
-      token: influxConfigs.token,
+      token,
     })
     const pingAPI = new PingAPI(influxDB)
 
@@ -27,6 +25,7 @@ router.post('/', async (req, res) => {
       .then(() => {
         const message = 'Ping Success'
 
+        console.log(message)
         return res
           .status(200)
           .json({ success: true, requestPort: port, message })
