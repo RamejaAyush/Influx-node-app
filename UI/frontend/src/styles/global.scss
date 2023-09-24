@@ -6,6 +6,52 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Inter Tight Light';
+  src: url('../assets/fonts/InterTight-Light.ttf') format('truetype'); // Adjust the path as needed
+  font-weight: light;
+  font-style: light;
+}
+@font-face {
+  font-family: 'Inter Tight Regular';
+  src: url('../assets/fonts/InterTight-Regular.ttf') format('truetype'); // Adjust the path as needed
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Inter Tight Semi Bold';
+  src: url('../assets/fonts/InterTight-SemiBold.ttf') format('truetype'); // Adjust the path as needed
+  font-weight: medium;
+  font-style: medium;
+}
+@font-face {
+  font-family: 'Inter Tight Bold';
+  src: url('../assets/fonts/InterTight-Bold.ttf') format('truetype'); // Adjust the path as needed
+  font-weight: bold;
+  font-style: bold;
+}
+@font-face {
+  font-family: 'Inter Tight Black';
+  src: url('../assets/fonts/InterTight-Black.ttf') format('truetype'); // Adjust the path as needed
+  font-weight: medium;
+  font-style: medium;
+}
+
+:root {
+  --f-light: 'Inter Tight Light', sans-serif;
+  --f-regular: 'Inter Tight Regular', sans-serif;
+  --f-semi-bold: 'Inter Tight Semi Bold', sans-serif;
+  --f-bold: 'Inter Tight Bold', sans-serif;
+  --f-black: 'Inter Tight Black', sans-serif;
+
+  --background: #000028;
+  --black: #000;
+  --white: #fff;
+  --light-white: #ececec;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: var(--f-regular);
+  background-color: var(--background);
+  color: var(--white);
 }
